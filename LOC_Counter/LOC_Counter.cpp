@@ -1,10 +1,4 @@
 ﻿// LOC_Counter.cpp : This file contains the 'main' function. Program execution begins and ends there.
-/*
- * Password_Application.cpp
- *
- *  Created on: Jul 5, 2023
- *      Author: The Tuan
- */
 //
 
 #include <iostream>
@@ -13,7 +7,7 @@
 #include <filesystem>
 
 using namespace std;
-namespace fs = std::filesystem;
+namespace fs = filesystem;
 
 string g_filePath, g_folderPath;
 
@@ -25,11 +19,10 @@ string GetFileExtension(const string& filename) {
     return "";
 }
 
-// Ham xoa khoang trang khi tab
+// Ham xoa khoang trang den ki tu dau tien
 string removeLeadingWhitespace(const string& line) {
     string trimmedLine = line;
 
-    // Xoa cac khoang trang den ki tu dau tien
     auto firstNonWhitespace = find_if(trimmedLine.begin(), trimmedLine.end(), [](unsigned char c) {
         return !isspace(c);
         });
@@ -200,21 +193,24 @@ int readFile()
 
 int main()
 {
-    while (true)
+    while (1)
     {
         cout << "\n========== Line of Code (LOC) Counter ==========\n" << endl;
-
-        cout << "Input path of folder: ";
-        cin >> g_folderPath;
         
+        cout << "Input path of folder (or type 'exit'): ";
+        cin >> g_folderPath;
+        cin.ignore();
+        if (g_folderPath == "exit") break;
         fs::current_path(g_folderPath);
         cout << "\n";
         system("dir");
         cout << "\n";
         readFile();
-        system("pause");
-        return 0;
+        cout << "Press Enter to continue!";
+        getchar();
+        system("cls");
     }
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
