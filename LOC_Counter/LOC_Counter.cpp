@@ -1,4 +1,10 @@
 ﻿// LOC_Counter.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*
+ * LOC_Counter.cpp
+ *
+ *  Created on: Jul 6, 2023
+ *      Author: The Tuan
+ */
 //
 
 #include <iostream>
