@@ -19,6 +19,11 @@ string GetFileExtension(const string& filename) {
     return "";
 }
 
+// Ham check folderPath co ton tai khong
+bool isFolderPathValid() {
+    return fs::exists(g_folderPath) && fs::is_directory(g_folderPath);
+}
+
 // Ham xoa khoang trang den ki tu dau tien
 string removeLeadingWhitespace(const string& line) {
     string trimmedLine = line;
@@ -36,6 +41,15 @@ int readFile()
 {
     int lineCount = 0;
     string line; //dong trong file
+
+    if (isFolderPathValid() == false)
+    {
+        return 0;
+    }
+
+    cout << "\n";
+    system("dir");
+    cout << "\n";
 
     for (const auto& entry : fs::directory_iterator(g_folderPath)) {
         if (entry.is_regular_file())
@@ -188,7 +202,7 @@ int readFile()
         }
     }
     cout << "========== TOTAL LINES OF CODE: " << lineCount << " ==========\n" << endl;
-    return 0;
+    return 1;
 }
 
 int main()
@@ -201,14 +215,19 @@ int main()
         cin >> g_folderPath;
         cin.ignore();
         if (g_folderPath == "exit") break;
-        fs::current_path(g_folderPath);
-        cout << "\n";
-        system("dir");
-        cout << "\n";
-        readFile();
-        cout << "Press Enter to continue!";
-        getchar();
-        system("cls");
+        if (readFile() == 0)
+        {
+            cout << "\nPath folder not found. Please try again!";
+            cout << "\nPress Enter to continue!";
+            getchar();
+            system("cls");
+        }
+        else
+        {
+            cout << "Press Enter to continue!";
+            getchar();
+            system("cls");
+        }
     }
     return 0;
 }
