@@ -210,7 +210,6 @@ string Password::generateSpecialCharacters(std::mt19937& gen)
 
 string Password::shufflePassword(std::mt19937& gen)
 {
-    cout << password << endl;
     uniform_int_distribution<int> uni(0, passwordLenght); // Khoang random tu 0 -> lenght
 
     // Xao tron mat khau
