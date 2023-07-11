@@ -9,25 +9,25 @@ Password::Password(int l, bool up, bool low, bool num, bool sc)
 int Password::showMenu()
 {
     int chooseMenu = 0;
-    cout << "\n" << "==================== Password Application ====================" << endl;
-    cout << "\n" << "Vui long lua chon do dai password dai hon 8 ki tu !" << endl;
-    cout << "\n" << "Mat khau nen co chu IN HOA, chu thuong, chu so, ki tu dac biet !" << endl;
-    cout << "\n" << "1. Do dai cua password ? -> " << passwordLenght << endl;
-    cout << "2. Ban co muon chu IN HOA khong ? -> ";  (passwordUppercase == true) ? (cout << "Yes" << endl) : (cout << "No" << endl);
-    cout << "3. Ban co muon chu chu thuong khong ? -> ";  (passwordLowercase == true) ? (cout << "Yes" << endl) : (cout << "No" << endl);
-    cout << "4. Ban co muon chu so khong ? -> ";  (passwordNumbers == true) ? (cout << "Yes" << endl) : (cout << "No" << endl);
-    cout << "5. Ban co muon ki tu dac biet khong ? -> ";  (passwordSC == true) ? (cout << "Yes" << endl) : (cout << "No" << endl);
-    cout << "6. In ra mat khau" << endl;
-    cout << "\n" << "==============================================================" << endl;
-    cout << "\n" << "Hay nhap lua chon cua ban: ";
-    cin >> chooseMenu;
-    cin.ignore();
-    while (cin.fail())
+    std::cout << "\n" << "==================== Password Application ====================" << endl;
+    std::cout << "\n" << "Vui long lua chon do dai password dai hon 8 ki tu !" << endl;
+    std::cout << "\n" << "Mat khau nen co chu IN HOA, chu thuong, chu so, ki tu dac biet !" << endl;
+    std::cout << "\n" << "1. Do dai cua password ? -> " << passwordLenght << endl;
+    std::cout << "2. Ban co muon chu IN HOA khong ? -> ";  (passwordUppercase == true) ? (std::cout << "Yes" << endl) : (std::cout << "No" << endl);
+    std::cout << "3. Ban co muon chu chu thuong khong ? -> ";  (passwordLowercase == true) ? (std::cout << "Yes" << endl) : (std::cout << "No" << endl);
+    std::cout << "4. Ban co muon chu so khong ? -> ";  (passwordNumbers == true) ? (std::cout << "Yes" << endl) : (std::cout << "No" << endl);
+    std::cout << "5. Ban co muon ki tu dac biet khong ? -> ";  (passwordSC == true) ? (std::cout << "Yes" << endl) : (std::cout << "No" << endl);
+    std::cout << "6. In ra mat khau" << endl;
+    std::cout << "\n" << "==============================================================" << endl;
+    std::cout << "\n" << "Hay nhap lua chon cua ban: ";
+    std::cin >> chooseMenu;
+    std::cin.ignore();
+    while (std::cin.fail())
     {
-        cin.clear(); // Dat lai trang thai
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
+        std::cin.clear(); // Dat lai trang thai
+        std::cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
 
-        cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
+        std::cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
         getchar();
         return chooseMenu = 0;
     }
@@ -36,20 +36,20 @@ int Password::showMenu()
 
 int Password::inputLenght()
 {
-    cout << "\n1. Nhap do dai cua password: ";
-    cin >> passwordLenght;
-    cin.ignore();
-    if (cin.fail())
+    std::cout << "\n1. Nhap do dai cua password: ";
+    std::cin >> passwordLenght;
+    std::cin.ignore();
+    if (std::cin.fail())
     {
-        cin.clear(); // Dat lai trang thai
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
-        cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
+        std::cin.clear(); // Dat lai trang thai
+        std::cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
+        std::cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
         getchar();
         return passwordLenght = 0;
     }
     else if ( passwordLenght < 8 )
     {
-        cout << "Vui long nhap do dai password toi thieu 8 ki tu!\n\nNhan Enter de tiep tuc!";
+        std::cout << "Vui long nhap do dai password toi thieu 8 ki tu!\n\nNhan Enter de tiep tuc!";
             
         // Dung chuong trinh thay cho system("pause")
         getchar();
@@ -62,15 +62,15 @@ int Password::inputLenght()
 bool Password::inputUppercase()
 {
     int n; // Lua chon Yes or No
-    cout << "\n" << "2. Ban co muon chu IN HOA khong?\n1. Yes      2. No" << endl;
-    cout << "Hay nhap lua chon cua ban: ";
-    cin >> n;
-    cin.ignore();
-    if (cin.fail())
+    std::cout << "\n" << "2. Ban co muon chu IN HOA khong?\n1. Yes      2. No" << endl;
+    std::cout << "Hay nhap lua chon cua ban: ";
+    std::cin >> n;
+    std::cin.ignore();
+    if (std::cin.fail())
     {
-        cin.clear(); // Dat lai trang thai
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
-        cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
+        std::cin.clear(); // Dat lai trang thai
+        std::cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
+        std::cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
         getchar();
         return passwordUppercase = false;
     }
@@ -83,7 +83,7 @@ bool Password::inputUppercase()
         return passwordUppercase = false;
         break;
     default:
-        cout << "Xin hay chon lai!\n" <<
+        std::cout << "Xin hay chon lai!\n" <<
             "\nNhan Enter de tiep tuc!";
         getchar();
         break;
@@ -93,15 +93,15 @@ bool Password::inputUppercase()
 bool Password::inputLowercase()
 {
     int n; // Lua chon Yes or No
-    cout << "\n" << "3. Ban co muon chu viet thuong khong?\n1. Yes      2. No" << endl;
-    cout << "Hay nhap lua chon cua ban: ";
-    cin >> n;
-    cin.ignore();
-    if (cin.fail())
+    std::cout << "\n" << "3. Ban co muon chu viet thuong khong?\n1. Yes      2. No" << endl;
+    std::cout << "Hay nhap lua chon cua ban: ";
+    std::cin >> n;
+    std::cin.ignore();
+    if (std::cin.fail())
     {
-        cin.clear(); // Dat lai trang thai
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
-        cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
+        std::cin.clear(); // Dat lai trang thai
+        std::cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
+        std::cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
         getchar();
         return passwordLowercase = false;
     }
@@ -114,7 +114,7 @@ bool Password::inputLowercase()
         return passwordLowercase = false;
         break;
     default:
-        cout << "Xin hay chon lai!\n" <<
+        std::cout << "Xin hay chon lai!\n" <<
             "\nNhan Enter de tiep tuc!";
         getchar();
         break;
@@ -124,15 +124,15 @@ bool Password::inputLowercase()
 bool Password::inputNumbers()
 {
     int n; // Lua chon Yes or No
-    cout << "\n" << "4. Ban co muon chu so khong?\n1. Yes      2. No" << endl;
-    cout << "Hay nhap lua chon cua ban: ";
-    cin >> n;
-    cin.ignore();
-    if (cin.fail())
+    std::cout << "\n" << "4. Ban co muon chu so khong?\n1. Yes      2. No" << endl;
+    std::cout << "Hay nhap lua chon cua ban: ";
+    std::cin >> n;
+    std::cin.ignore();
+    if (std::cin.fail())
     {
-        cin.clear(); // Dat lai trang thai
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
-        cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
+        std::cin.clear(); // Dat lai trang thai
+        std::cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
+        std::cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
         getchar();
         return passwordLowercase = false;
     }
@@ -145,7 +145,7 @@ bool Password::inputNumbers()
         return passwordNumbers = false;
         break;
     default:
-        cout << "Xin hay chon lai!\nNhan Enter de tiep tuc!";
+        std::cout << "Xin hay chon lai!\nNhan Enter de tiep tuc!";
         getchar();
         break;
     }
@@ -155,15 +155,15 @@ bool Password::inputNumbers()
 bool Password::inputSC()
 {
     int n; // Lua chon Yes or No
-    cout << "\n" << "5. Ban co muon ki tu dac biet khong?\n1. Yes      2. No" << endl;
-    cout << "Hay nhap lua chon cua ban: ";
-    cin >> n;
-    cin.ignore();
-    if (cin.fail())
+    std::cout << "\n" << "5. Ban co muon ki tu dac biet khong?\n1. Yes      2. No" << endl;
+    std::cout << "Hay nhap lua chon cua ban: ";
+    std::cin >> n;
+    std::cin.ignore();
+    if (std::cin.fail())
     {
-        cin.clear(); // Dat lai trang thai
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
-        cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
+        std::cin.clear(); // Dat lai trang thai
+        std::cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Bo qua cac ky tu khong hop le
+        std::cout << "\nBan da nhap khong phai so nguyen. Vui long thu lai!\n\nNhan Enter de tiep tuc!";
         getchar();
         return passwordSC = false;
     }
@@ -176,7 +176,7 @@ bool Password::inputSC()
         return passwordSC = false;
         break;
     default:
-        cout << "Xin hay chon lai!\n\nNhan Enter de tiep tuc!";
+        std::cout << "Xin hay chon lai!\n\nNhan Enter de tiep tuc!";
         getchar();
         break;
     }    

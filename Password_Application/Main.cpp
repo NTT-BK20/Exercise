@@ -44,7 +44,7 @@ int main()
         case 6:
             if (l < 8 || up == false && low == false && num == false && sc == false)
             {
-                cout << "\nVui long lua chon do dai password dai hon 8 ki tu !" <<
+                std::cout << "\nVui long lua chon do dai password dai hon 8 ki tu !" <<
                     "\nMat khau nen co chu IN HOA, chu thuong, chu so, ki tu dac biet !\n" <<
                     "\nNhan Enter de tiep tuc!";
                 getchar();
@@ -53,14 +53,14 @@ int main()
             }
             else
             {
-                cout << "\nGenerated password: " << pw->processPassword(gen) << "\n\nNhan Enter de tiep tuc!";
+                std::cout << "\nGenerated password: " << pw->processPassword(gen) << "\n\nNhan Enter de tiep tuc!";
                 getchar();
                 system("cls");
                 break;
             }
 
         default:
-            cout << "Hay chon menu tu 1 -> 6 !\n\nNhan Enter de tiep tuc!";
+            std::cout << "Hay chon menu tu 1 -> 6 !\n\nNhan Enter de tiep tuc!";
             getchar();
             system("cls");
             break;
