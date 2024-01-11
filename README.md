@@ -1,6 +1,10 @@
 # Excercise
 
 ------------------------------------------------------
+Exercise-2: Build a Console App using C++ to read an input file and output to a file according to the following requirements
+Link: https://www.hackerrank.com/challenges/attribute-parser/problem?isFullScreen=true
+
+------------------------------------------------------
 Exercise-5: Password Generator Application Description
 
 ■ Requirement: Create a password generator application using C++ that generates random and secure passwords based on user-defined criteria. ・Input parameters:
